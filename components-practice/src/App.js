@@ -5,10 +5,11 @@ class Button extends React.Component {
   render() {
     return (
       <div>
+        {/*this.props.buttonStart was passed along as a prop when <Button /> was invoked. */}
         <h4>Button {this.props.buttonStart}</h4>
         <button onClick={this.props.screwUpButtons}>
-          {' '}
-          ===== {this.props.buttonStart} ====={' '}
+          {/*passed screwUpButtons func through props*/}
+          {this.props.buttonStart}
         </button>
       </div>
     );
