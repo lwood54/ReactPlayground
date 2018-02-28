@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import GitHubSearch from './OtherProjects/GitHubSearch';
 
 class Button extends React.Component {
   render() {
@@ -47,6 +48,7 @@ class App extends React.Component {
           screwUpButtons={this.screwUpButtons}
           buttonStart={this.state.start3}
         />
+        <GitHubSearch />
       </div>
     );
   }
