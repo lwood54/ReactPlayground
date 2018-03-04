@@ -1,28 +1,84 @@
-.App {
+* {
+  font-family: 'Oxygen', sans-serif;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.temp {
+  width: 90%;
+  margin: auto;
+  background-color: rgba(168, 177, 193, 0.6);
+  border-radius: 5px;
+  margin-bottom: 5%;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.city {
+  width: 50%;
+  margin: 0 auto;
+  background-color: rgba(168, 177, 193, 0.6);
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
-.App-title {
-  font-size: 1.5em;
+.condition {
+  width: 50%;
+  margin: 0 auto;
+  background-color: rgba(168, 177, 193, 0.6);
+  border-radius: 5px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  padding-bottom: 0.25px;
+  margin-top: -10px;
 }
 
-.App-intro {
-  font-size: large;
+.temp h4 {
+  display: inline-block;
+  font-size: 4em;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.cool {
+  background-image: url('https://c.pxhere.com/photos/1e/b0/manali_himalayas_quiet_backdrop_landscape_mountains_travel_trek-1204651.jpg!d');
+  padding-bottom: 10px;
+}
+
+.cold {
+  background-image: url('https://c.pxhere.com/photos/30/5b/winter_forest_snow_trees_winter_forest_pine_winter_road_winter_landscape-699409.jpg!d');
+  padding-bottom: 10px;
+}
+
+.warm {
+  background-image: url('http://www.dailytravelphotos.com/images/2009/091108_dili_east_timor_leste_beach_turquoise_island_clouds_MG_3209.jpg');
+  padding-bottom: 10px;
+}
+
+.hot {
+  background-image: url('https://c.pxhere.com/photos/60/f6/glowing_desert_hot_sandy_loneliness_dark_clouds_weather-1343380.jpg!d');
+  padding-bottom: 10px;
+}
+
+.fa-star {
+  margin: 0.5em;
+  font-size: 24px;
+}
+
+span {
+  display: inline-block;
+  margin: 0.5em;
+  text-align: center;
+  background-color: #ccc;
+  width: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #eee;
+  color: #ddd;
+  cursor: not-allowed;
+}
+
+.used {
+  background-color: #aaddaa;
+  color: #99bb99;
 }

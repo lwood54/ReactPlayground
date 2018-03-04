@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import GitHubSearch from './OtherProjects/GitHubSearch';
 import PlayNine from './OtherProjects/PlayNine';
+import WeatherApp from './OtherProjects/WeatherApp';
 
 class Button extends React.Component {
   render() {
@@ -50,7 +51,10 @@ class App extends React.Component {
           buttonStart={this.state.start3}
         />
         <GitHubSearch />
+        <br />
         <PlayNine />
+        <br />
+        <WeatherApp className="weatherApp" />
       </div>
     );
   }
