@@ -1,20 +1,28 @@
 import React from 'react';
 import axios from 'axios';
+import '../styles/components/wikiviewer.css';
 
 const GetRandomWikiButton = props => {
   return (
-    <div>
-      <button onClick={props.handleClick}>Get a random Wiki Article</button>
+    <div className="center-align">
+      <a
+        className="btn waves-effect waves-light random"
+        href="https://en.wikipedia.org/wiki/Special:Random"
+        target="_blank"
+      >
+        <i className="material-icons right">shuffle</i>
+        Random Wiki!
+      </a>
     </div>
   );
 };
 
 const ArticleItem = props => {
   return (
-    <div>
-      <a href={props.url} target="_blank">
-        <p>{props.title}</p>
-        <p>{props.snippet}</p>
+    <div className="card-panel teal accent-1 hoverable">
+      <a className="articleLink" href={props.url} target="_blank">
+        <h4 className="flow-text">{props.title}</h4>
+        <p className="flow-text teal-text text-darken-2">{props.snippet}</p>
       </a>
     </div>
   );
@@ -23,7 +31,6 @@ const ArticleItem = props => {
 class WikiViewer extends React.Component {
   state = {
     value: '',
-    searchUrl: '',
     searchTitles: [],
     searchSnippets: [],
     searchUrls: [],
@@ -33,16 +40,13 @@ class WikiViewer extends React.Component {
   getWiki = searchInput => {
     axios({
       method: 'get',
-      // url: `https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&titles=${searchInput}&prop=info&format=json&inprop=url`
-      // url: `https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${searchInput}&srlimit=10&srprop=snippet&format=json`
       url: `https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=opensearch&search=${searchInput}&format=json`
     })
       .then(response => {
         this.setState({
           searchTitles: response.data[1],
           searchSnippets: response.data[2],
-          searchUrls: response.data[3],
-          searchPerformed: true
+          searchUrls: response.data[3]
         });
       })
       .catch(error => {
@@ -59,27 +63,46 @@ class WikiViewer extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.getWiki(this.state.value);
-    this.setState({ value: '' });
-  };
-
-  setUrl = url => {
-    this.setState({
-      searchUrl: url
-    });
+    if (this.state.value !== '') {
+      this.getWiki(this.state.value);
+      this.setState({
+        value: '',
+        searchPerformed: true
+      });
+    }
   };
 
   render() {
     return (
-      <div>
-        <GetRandomWikiButton />
+      <div className="wikiViewer">
+        {!this.state.searchPerformed && (
+          <GetRandomWikiButton
+            className="randomWiki"
+            onClick={this.handleRandom}
+          />
+        )}
         <form onSubmit={this.handleSubmit}>
-          <label>Search Wikipedia!</label>
-          <br />
-          <input onChange={this.handleChange} value={this.state.value} />
-          <input type="submit" value="search" />
+          <div className="input-field">
+            <input
+              className="userInput teal lighten-4"
+              onChange={this.handleChange}
+              placeholder={'Search Wikipedia!'}
+              value={this.state.value}
+            />
+            <button
+              className="
+                btn-floating 
+                btn-large
+                waves-effect
+                waves-light
+                pulse
+                search"
+            >
+              <i className="material-icons right">search</i>
+            </button>
+          </div>
         </form>
-        {this.state.searchPerformed && <h1>Search Results</h1>}
+        {this.state.searchPerformed && <h4>Search Results</h4>}
         {this.state.searchPerformed &&
           this.state.searchTitles.map((article, index) => {
             return (

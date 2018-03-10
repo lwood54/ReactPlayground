@@ -57,7 +57,7 @@ class App extends React.Component {
         <br />
         <WeatherApp className="weatherApp" />
         <br />
-        <WikiViewer />
+        <WikiViewer className="wikiViewer" />
       </div>
     );
   }

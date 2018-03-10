@@ -1,0 +1,40 @@
+.wikiViewer {
+  width: 50%;
+  margin: auto;
+  margin-top: 10%;
+}
+
+.articleLink:hover {
+  text-decoration: none;
+}
+
+.random {
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.userInput {
+  text-align: center;
+}
+
+.input-field > label {
+  text-align: center;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: rgb(97, 99, 102);
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: rgb(97, 99, 102);
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: rgb(97, 99, 102);
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: rgb(97, 99, 102);
+}
