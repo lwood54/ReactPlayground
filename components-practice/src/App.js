@@ -4,6 +4,7 @@ import GitHubSearch from './OtherProjects/GitHubSearch';
 import PlayNine from './OtherProjects/PlayNine';
 import WeatherApp from './OtherProjects/WeatherApp';
 import WikiViewer from './OtherProjects/WikiViewer';
+import TwitchPreviewer from './OtherProjects/TwitchPreviewer';
 
 class Button extends React.Component {
   render() {
@@ -58,6 +59,8 @@ class App extends React.Component {
         <WeatherApp className="weatherApp" />
         <br />
         <WikiViewer className="wikiViewer" />
+        <br />
+        <TwitchPreviewer className="twitchViewer" />
       </div>
     );
   }
